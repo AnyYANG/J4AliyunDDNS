@@ -7,12 +7,13 @@ package cn.ddns.aliddns;
  * All Right Reserved by liuyang.
  **/
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -66,7 +67,7 @@ public class AliyunDDNS {
                     udr_req.setRecordId(record.getRecordId());
                     udr_req.setRR(record.getRR());
                     UpdateDomainRecordResponse udr_resp = client.getAcsResponse(udr_req);
-                    System.out.println(udr_resp.toString());
+                    System.out.println("修改成功");
                 } else {
                     System.out.println("不需要修改");
                 }
@@ -79,9 +80,8 @@ public class AliyunDDNS {
     }
 
 
-
-
     public static void main(String[] args) {
+        Properties prop = new Properties();
         try {
             updateIP();
         } catch (Exception e) {
