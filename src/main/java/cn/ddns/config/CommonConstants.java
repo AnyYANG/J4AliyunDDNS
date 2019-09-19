@@ -23,13 +23,13 @@ public class CommonConstants {
     /**
      * accesskey
      */
-    public static final String KEY_ACCESS_KEY = "LFmU7";
+    public static final String KEY_ACCESS_KEY = "LTA";
     /**
      * 密钥
      */
-    public static final String KEY_ACCESS_SECRET = "15XAX";
-    //域名
+    public static final String KEY_ACCESS_SECRET = "15X";
+    //主域名
     public static final String KEY_DOMAIN = "liuy.cc";
-
+    //主机记录
     public static final String KEY_RR = "c";
 }
