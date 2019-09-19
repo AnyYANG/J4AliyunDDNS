@@ -52,7 +52,7 @@
                         </manifestEntries>
                     </archive>
                     <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                        <descriptorRef>jar-with-dep</descriptorRef>
                     </descriptorRefs>
                 </configuration>
                 <executions>

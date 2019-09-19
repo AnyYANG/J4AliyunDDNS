@@ -67,9 +67,9 @@ public class AliyunDDNS {
                     udr_req.setRecordId(record.getRecordId());
                     udr_req.setRR(record.getRR());
                     UpdateDomainRecordResponse udr_resp = client.getAcsResponse(udr_req);
-                    System.out.println("修改成功");
+                    System.out.println("修改成功! oldIP="+old_ip+" newIP"+cur_ip);
                 } else {
-                    System.out.println("不需要修改");
+                    System.out.println("不需要修改! 当前ip:"+cur_ip);
                 }
             }
         }
@@ -80,10 +80,12 @@ public class AliyunDDNS {
     }
 
 
-    public static void main(String[] args) {
-        Properties prop = new Properties();
+    public static void main(String[] args) throws IOException {
+
+
+
         try {
-            updateIP();
+      //      updateIP();
         } catch (Exception e) {
             System.out.println(e);
         }
