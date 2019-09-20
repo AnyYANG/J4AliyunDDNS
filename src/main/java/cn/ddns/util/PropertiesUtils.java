@@ -40,10 +40,10 @@ public class PropertiesUtils {
                 }
             }
             System.out.println("********************");
-            System.out.println(CommonConstants.KEY_ACCESS_KEY);
-            System.out.println(CommonConstants.KEY_ACCESS_SECRET);
-            System.out.println(CommonConstants.KEY_DOMAIN);
-            System.out.println(CommonConstants.KEY_RR);
+            System.out.println("KEY_ACCESS_KEY"+CommonConstants.KEY_ACCESS_KEY);
+            System.out.println("KEY_ACCESS_SECRET"+CommonConstants.KEY_ACCESS_SECRET);
+            System.out.println("KEY_DOMAIN"+CommonConstants.KEY_DOMAIN);
+            System.out.println("KEY_RR"+CommonConstants.KEY_RR);
             System.out.println("********************");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
