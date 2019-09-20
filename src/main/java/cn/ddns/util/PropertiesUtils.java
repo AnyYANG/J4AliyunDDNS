@@ -1,9 +1,12 @@
 package cn.ddns.util;
 
 import cn.ddns.aliddns.AliyunDDNS;
+import cn.ddns.config.CommonConstants;
 
 import java.io.*;
 import java.net.URL;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -14,22 +17,32 @@ import java.util.Properties;
  **/
 
 public class PropertiesUtils {
-
-    public static void init() {
-        ClassLoader classLoader = PropertiesUtils.class.getClassLoader();
-        URL resource = classLoader.getResource("config.properties");
-        String path = resource.getPath();
-        System.out.println(path);
+    public static void init(String path) {
+        System.out.println("config.properties path:" + path);
         InputStream in = null;
         Properties prop = new Properties();
         try {
             in = new BufferedInputStream(new FileInputStream(new File(path)));
             prop.load(in);
+            Iterator<Map.Entry<Object, Object>> it = prop.entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry<Object, Object> entry = it.next();
+                Object key = entry.getKey();
+                Object value = entry.getValue();
+                if (key.equals("KEY_ACCESS_KEY")) {
+                    CommonConstants.KEY_ACCESS_KEY = String.valueOf(value);
+                } else if (key.equals("KEY_ACCESS_SECRET")) {
+                    CommonConstants.KEY_ACCESS_SECRET = String.valueOf(value);
+                } else if (key.equals("KEY_DOMAIN")) {
+                    CommonConstants.KEY_DOMAIN = String.valueOf(value);
+                } else if (key.equals("KEY_RR")) {
+                    CommonConstants.KEY_RR = String.valueOf(value);
+                }
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
 }

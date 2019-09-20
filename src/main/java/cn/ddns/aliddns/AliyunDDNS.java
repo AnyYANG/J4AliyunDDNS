@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 
 import cn.ddns.config.CommonConstants;
 import cn.ddns.util.HttpUtil;
+import cn.ddns.util.PropertiesUtils;
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.IAcsClient;
 import com.aliyuncs.alidns.model.v20150109.DescribeDomainRecordsRequest;
@@ -74,11 +75,32 @@ public class AliyunDDNS {
     }
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main1(String[] args) throws IOException {
         try {
+
+
+
             updateIP();
         } catch (Exception e) {
             System.out.println(e);
         }
+    }
+
+    public static void main(String[] args) {
+        try{
+             parse(args);
+            updateIP();
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
+
+    private static void parse(String[] args) {
+       if(args==null ||  args.length ==0){
+           throw new RuntimeException("没有找到配置文件,请使用java -jar j4aliyunddns.jar  /路径名/config.properties");
+       }else{
+           PropertiesUtils.init(args[0]);
+       }
+
     }
 }
