@@ -12,9 +12,7 @@ import java.util.Properties;
  **/
 
 public class CommonConstants {
-    /**
-     * HTTP请求格式
-     */
+    /** HTTP请求格*/
     public static String CHARSET_ENCONDING = "utf-8";
     /**
      * 获取ip的链接，获取网页，从网页上获得ip

@@ -4,7 +4,6 @@ import cn.ddns.aliddns.AliyunDDNS;
 import cn.ddns.config.CommonConstants;
 
 import java.io.*;
-import java.net.URL;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Properties;
@@ -29,6 +28,7 @@ public class PropertiesUtils {
                 Map.Entry<Object, Object> entry = it.next();
                 Object key = entry.getKey();
                 Object value = entry.getValue();
+                System.out.println(entry.getKey() + " "+ value);
                 if (key.equals("KEY_ACCESS_KEY")) {
                     CommonConstants.KEY_ACCESS_KEY = String.valueOf(value);
                 } else if (key.equals("KEY_ACCESS_SECRET")) {
@@ -39,6 +39,12 @@ public class PropertiesUtils {
                     CommonConstants.KEY_RR = String.valueOf(value);
                 }
             }
+            System.out.println("********************");
+            System.out.println(CommonConstants.KEY_ACCESS_KEY);
+            System.out.println(CommonConstants.KEY_ACCESS_SECRET);
+            System.out.println(CommonConstants.KEY_DOMAIN);
+            System.out.println(CommonConstants.KEY_RR);
+            System.out.println("********************");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

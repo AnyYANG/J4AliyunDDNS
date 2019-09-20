@@ -74,21 +74,9 @@ public class AliyunDDNS {
 
     }
 
-
-    public static void main1(String[] args) throws IOException {
-        try {
-
-
-
-            updateIP();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
     public static void main(String[] args) {
         try{
-             parse(args);
+            parse(args);
             updateIP();
         }catch(Exception e){
             System.out.println(e);
